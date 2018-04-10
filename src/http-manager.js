@@ -42,7 +42,7 @@ var _getErrorObject = function(defaultMessage, err) {
     // Serialized JSON error
     try {
       var parsedError = JSON.parse(err);
-      errorObject = new WebApiError(parsedError.error.message, parsedError.error.status);
+      errorObject = new WebApiError(parsedError, parsedError.error.message, parsedError.error.status);
     } catch (err) {
       // Error not JSON formatted
     }
