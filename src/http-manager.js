@@ -50,7 +50,7 @@ var _getErrorObject = function(defaultMessage, err) {
 
   if(!errorObject) {
     // Unexpected format
-    errorObject = new WebApiError(defaultMessage + ': ' + JSON.stringify(err));
+    errorObject = new WebApiError(err, defaultMessage + ': ' + JSON.stringify(err));
   }
 
   return errorObject;
