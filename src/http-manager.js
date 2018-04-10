@@ -32,11 +32,11 @@ var _getErrorObject = function(defaultMessage, err) {
   var errorObject;
   if (typeof err.error === 'object' && typeof err.error.message === 'string') {
     // Web API Error format
-    errorObject = new WebApiError(err.error.message, err.error.status);
+    errorObject = new WebApiError(err,err.error.message, err.error.status);
   } else if (typeof err.error === 'string') {
     // Authorization Error format
     /* jshint ignore:start */
-    errorObject = new WebApiError(err.error + ': ' + err['error_description']);
+    errorObject = new WebApiError(err,err.error + ': ' + err['error_description']);
     /* jshint ignore:end */
   } else if (typeof err === 'string') {
     // Serialized JSON error
